@@ -1,19 +1,15 @@
-import React, {FC} from 'react';
-
-interface IProps {
-        message: string,
-}
-const IndexPage: FC<IProps> = ({message}) => {
+import React from 'react';
+import Links from "@/components/features/Links";
+import AutorisationForm from "@/components/features/AutorisationForm/index";
+const IndexPage = () => {
 
     return (
-        <h1>{message}</h1>
+        <div className='container'>
+            {/*<Links/>*/}
+            <AutorisationForm />
+        </div>
     );
 }
 
-export async function getServerSideProps() {
-    const res = await fetch(`http://localhost:5000/hello`)
-    const { message } = await res.json()
-    return { props: { message } }
-}
 
 export default IndexPage;

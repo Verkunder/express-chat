@@ -22,7 +22,6 @@ const io = new Server(server, {
 io.on('connection', (socket) => {
     socket.on("join", ({ name, room }) => {
         socket.join(room);
-
         socket.emit('message', {
             data: { user: {name: 'Admin'}, message: `He ${name}`}
         })
